@@ -31,6 +31,7 @@ db.run(`
 
 // ✅ Webhook Verification (Meta Requirement)
 app.get("/webhook", (req, res) => {
+    console.log(ACCESS_TOKEN,VERIFY_TOKEN);
     const mode = req.query["hub.mode"];
     const token = req.query["hub.verify_token"];
     const challenge = req.query["hub.challenge"];
