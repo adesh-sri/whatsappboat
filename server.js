@@ -104,4 +104,4 @@ app.post("/manual-response", (req, res) => {
 });
 
 // ✅ Start Server
-app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(`🚀 Good Server running on port ${PORT}`));
