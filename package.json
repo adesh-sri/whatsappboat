@@ -1,0 +1,22 @@
+{
+  "name": "whatsapp-bot-main",
+  "version": "1.0.0",
+  "description": "This project provides two implementations of a WhatsApp chatbot:\r - **server.js (Node.js)**  \r - **index.py (Python, Flask)**",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "axios": "^1.8.1",
+    "body-parser": "^1.20.3",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "nodemon": "^3.1.9",
+    "sqlite3": "^5.1.7"
+  }
+}
