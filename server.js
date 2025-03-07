@@ -3,7 +3,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const axios = require("axios");
 const sqlite3 = require("sqlite3").verbose();
-const fetchAll = require("data.js").fetchAll();
+const fetchAll = require("../data.js").fetchAll();
 
 const app = express();
 app.use(bodyParser.json());
