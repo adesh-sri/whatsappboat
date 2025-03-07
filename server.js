@@ -53,8 +53,6 @@ app.get("/getdata", async (req, res) => {
     console.log(err);
   }
 });
-
-});
 // ✅ Handle Incoming WhatsApp Messages
 app.post("/webhook", async (req, res) => {
     const body = req.body;
