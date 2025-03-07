@@ -50,9 +50,9 @@ app.get("/getdata", async (req, res) => {
         console.log(err);
     }else{
       const name = rows[0];
+        return name;
     }
   });
-  return name;
 });
 // ✅ Handle Incoming WhatsApp Messages
 app.post("/webhook", async (req, res) => {
