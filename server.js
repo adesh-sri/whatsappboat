@@ -45,12 +45,12 @@ app.get("/webhook", (req, res) => {
 // ✅ Handle Incoming WhatsApp Messages
 app.post("/webhook", async (req, res) => {
     const body = req.body;
-
+    console.log(body);
     if (body.entry?.[0].changes?.[0].value?.messages) {
         const message = body.entry[0].changes[0].value.messages[0];
         const userPhone = message.from;
         const userQuery = message.text.body;
-
+        
         const response = getAutoResponse(userQuery);
         if (response) {
             sendWhatsAppMessage(userPhone, response);
