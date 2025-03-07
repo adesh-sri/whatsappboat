@@ -3,7 +3,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const axios = require("axios");
 const sqlite3 = require("sqlite3").verbose();
-const fetchAll = require("./data.js");
+
 
 const app = express();
 app.use(bodyParser.json());
@@ -43,7 +43,8 @@ app.get("/webhook", (req, res) => {
     return res.status(403).send("Verification failed.");
 });
 app.get("/getdata", (req, res) => {
-   return fetchAll(db,"SELECT * FROM messages");
+   const query = db.prepare('SELECT * FROM messages');
+    console.log(query.all());
 });
 // ✅ Handle Incoming WhatsApp Messages
 app.post("/webhook", async (req, res) => {
