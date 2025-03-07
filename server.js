@@ -43,7 +43,7 @@ app.get("/webhook", (req, res) => {
     return res.status(403).send("Verification failed.");
 });
 app.get("/getdata", async (req, res) => {
-  return db.all("Select * from messages");
+  return db.get("Select * from messages");
 });
 // ✅ Handle Incoming WhatsApp Messages
 app.post("/webhook", async (req, res) => {
