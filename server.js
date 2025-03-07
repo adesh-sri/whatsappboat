@@ -44,7 +44,8 @@ app.get("/webhook", (req, res) => {
 });
 app.get("/getdata", (req, res) => {
    const query = db.prepare('SELECT * FROM messages');
-    console.log(query.all());
+    const data = query.get();
+    return data;
 });
 // ✅ Handle Incoming WhatsApp Messages
 app.post("/webhook", async (req, res) => {
