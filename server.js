@@ -42,9 +42,7 @@ app.get("/webhook", (req, res) => {
     return res.status(403).send("Verification failed.");
 });
 app.get("/getdata", (req, res) => {
-    const response = db.run("SELECT * FROM messages")
-    return response;
-    //res.status(200).json(response);
+   return fetchAll(db,"SELECT * FROM messages");
 });
 // ✅ Handle Incoming WhatsApp Messages
 app.post("/webhook", async (req, res) => {
@@ -108,6 +106,13 @@ app.post("/manual-response", (req, res) => {
 
     res.status(200).json({ status: "Message sent" });
 });
-
+export const fetchAll = async (db, sql) => {
+  return new Promise((resolve, reject) => {
+    db.all(sql, (err, rows) => {
+      if (err) reject(err);
+      resolve(rows);
+    });
+  });
+};
 // ✅ Start Server
 app.listen(PORT, () => console.log(`🚀 Good Server running on port ${PORT}`));
