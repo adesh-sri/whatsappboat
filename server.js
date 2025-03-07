@@ -43,15 +43,15 @@ app.get("/webhook", (req, res) => {
     return res.status(403).send("Verification failed.");
 });
 app.get("/getdata", async (req, res) => {
-
+var name = null;
  var query = "SELECT * FROM messages";
   db.all(query, function (err, rows) {
     if(err){
         console.log(err);
     }else{
-      const name = rows[0];
-        return name;
+      name = rows[0];
     }
+      return name;
   });
 });
 // ✅ Handle Incoming WhatsApp Messages
