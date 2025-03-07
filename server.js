@@ -43,9 +43,13 @@ app.get("/webhook", (req, res) => {
     return res.status(403).send("Verification failed.");
 });
 app.get("/getdata", (req, res) => {
-   const query = db.prepare('SELECT * FROM messages');
-    const data = query.get();
-    return data;
+   var lista = [];
+    db.all("SELECT * FROM messages", function(err,rows){
+         if(err) return cb(err);
+         let contador = 0; 
+         rows.forEach(function (row) { 
+            lista[contador] = row.user + ";" + row.query + ";" + row.status;}); 
+        return lista;
 });
 // ✅ Handle Incoming WhatsApp Messages
 app.post("/webhook", async (req, res) => {
