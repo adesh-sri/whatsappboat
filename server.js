@@ -44,14 +44,15 @@ app.get("/webhook", (req, res) => {
 });
 app.get("/getdata", async (req, res) => {
 
-    let sql = `SELECT * FROM messages`;
-
-  try {
-    const products = await db.get(sql);
-      console.log(products);
-  } catch (err) {
-    console.log(err);
-  }
+ var query = "SELECT * FROM messages";
+  db.all(query, function (err, rows) {
+    if(err){
+        console.log(err);
+    }else{
+      const name = rows[0];
+    }
+  });
+  return name;
 });
 // ✅ Handle Incoming WhatsApp Messages
 app.post("/webhook", async (req, res) => {
