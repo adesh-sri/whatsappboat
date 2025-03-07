@@ -3,6 +3,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const axios = require("axios");
 const sqlite3 = require("sqlite3").verbose();
+const fetchAll = require("data.js");
 
 const app = express();
 app.use(bodyParser.json());
@@ -106,13 +107,6 @@ app.post("/manual-response", (req, res) => {
 
     res.status(200).json({ status: "Message sent" });
 });
-export const fetchAll = async (db, sql) => {
-  return new Promise((resolve, reject) => {
-    db.all(sql, (err, rows) => {
-      if (err) reject(err);
-      resolve(rows);
-    });
-  });
-};
+
 // ✅ Start Server
 app.listen(PORT, () => console.log(`🚀 Good Server running on port ${PORT}`));
