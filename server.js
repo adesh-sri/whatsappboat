@@ -51,7 +51,7 @@ app.post("/webhook", async (req, res) => {
         const userPhone = message.from;
         const userQuery = message.text.body;
 
-        console.log(userQuery);
+        console.log(message,userPhone);
         
         const response = getAutoResponse(userQuery);
         if (response) {
