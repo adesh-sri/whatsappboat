@@ -48,7 +48,7 @@ app.get("/getdata", async (req, res) => {
 
   try {
     const products = await db.get(sql);
-      res.status(200).json(products);
+      return products.json();
   } catch (err) {
     console.log(err);
   }
